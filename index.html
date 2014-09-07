@@ -1,3 +1,7 @@
 <script type="text/JavaScript">
-  alert(document.URL);
+  var xmlHttp = new XMLHttpRequest();
+  xmlHttp.open( "GET", "https://dl.dropboxusercontent.com/u/4121165/static/xcv58.me.txt", false );
+  xmlHttp.send( null );
+  var url = xmlHttp.responseText;
+  window.location = url;
 </script>
