@@ -3,9 +3,7 @@
   var currentURL = document.URL;
   var subURL = regexForSubURL.exec(currentURL);
 
-  subURL = String(subURL).replace("/", ".");
-
-  var dropboxPublicURL = "https://dl.dropboxusercontent.com/u/4121165/static/" + subURL;
+  var dropboxPublicURL = "https://dl.dropboxusercontent.com/u/4121165/" + subURL + ".txt";
 
   var xmlHttp = new XMLHttpRequest();
   xmlHttp.open( "GET", dropboxPublicURL, false );
@@ -13,17 +11,13 @@
   var url = xmlHttp.responseText;
 
   if (/We can't find the page you're looking for/.test(url)) {
-  document.documentElement.innerHTML =
-  "<font size=7>"
-    + "<a href='" + dropboxPublicURL + "'>"
+    document.documentElement.innerHTML = "<font size=7>"
+      + "<a href='" + dropboxPublicURL + "'>"
       + dropboxPublicURL
       + "</a>"
-    +" is invalid address!"
-    +"</font>";
+      +" is invalid address!"
+      +"</font>";
   } else {
-  window.location = url;
+    window.location = url;
   }
 </script>
-<body>
-  123
-</body>
